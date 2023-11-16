@@ -5,7 +5,6 @@ import Rotate from 'react-reveal/Rotate';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay, } from 'swiper/modules';
-
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import slide1 from "../../assets/slides/slide1.png"
@@ -13,6 +12,7 @@ import slide2 from "../../assets/slides/slide2.png"
 import slide3 from "../../assets/slides/slide3.png"
 import slide4 from "../../assets/slides/slide4.png"
 import slide5 from "../../assets/slides/slide5.png"
+
 
 const Header = () => {
 
@@ -24,10 +24,10 @@ const Header = () => {
 
     return (
 
-        <div className=" px-10">
+        <div className="">
             <div style={commonBackgroundStyle} className="grid  grid-cols-1 md:grid-cols-2">
                 <Rotate top left>
-                    <div>
+                    <div className="px-10" >
                         <div className="divider divider-end"></div>
                         <h2 className="text-white font-bold text-7xl">
                             Great Product <br />
@@ -56,38 +56,39 @@ const Header = () => {
                         </div>
                     </div>
                 </Rotate>
+
                 <div className="flex  items-center justify-center ">
 
 
-                    <Rotate right >
-                        <Swiper
-                            slidesPerView={1}
-                            spaceBetween={30}
-                            loop={true}
-                            centeredSlides={true}
-                            autoplay={{
-                                delay: 1500,
-                                disableOnInteraction: false,
-                            }}
-                            pagination={{
-                                clickable: true,
-                            }}
 
-                            navigation={true}
-                            modules={[Pagination, Navigation, Autoplay]}
-                            className="mySwiper"
-                        >
-                            <SwiperSlide ><img className="px-10" src={slide1} alt="" /></SwiperSlide>
-                            <SwiperSlide className="px-10"><img className="px-10" src={slide2} alt="" /></SwiperSlide>
-                            <SwiperSlide className="px-10"><img className="px-10" src={slide3} alt="" /></SwiperSlide>
-                            <SwiperSlide className="px-10"><img className="px-10" src={slide4} alt="" /></SwiperSlide>
-                            <SwiperSlide className="px-10"><img className="px-10" src={slide5} alt="" /></SwiperSlide>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={30}
+                        loop={true}
+                        centeredSlides={true}
+                        autoplay={{
+                            delay: 1500,
+                            disableOnInteraction: false,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
 
-                        </Swiper>
-                    </Rotate>
+                        navigation={true}
+                        modules={[Pagination, Navigation, Autoplay]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide ><img className="px-10" src={slide1} alt="" /></SwiperSlide>
+                        <SwiperSlide className="px-10"><img className="px-10" src={slide2} alt="" /></SwiperSlide>
+                        <SwiperSlide className="px-10"><img className="px-10" src={slide3} alt="" /></SwiperSlide>
+                        <SwiperSlide className="px-10"><img className="px-10" src={slide4} alt="" /></SwiperSlide>
+                        <SwiperSlide className="px-10"><img className="px-10" src={slide5} alt="" /></SwiperSlide>
+
+                    </Swiper>
 
 
                 </div>
+
 
             </div>
         </div>
