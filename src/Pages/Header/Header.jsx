@@ -56,37 +56,43 @@ const Header = () => {
                         </div>
                     </div>
                 </Rotate>
-
-                <div className="flex  items-center justify-center ">
-
-
-
-                    <Swiper
-                        slidesPerView={1}
-                        spaceBetween={30}
-                        loop={true}
-                        centeredSlides={true}
-                        autoplay={{
-                            delay: 1500,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={{
-                            clickable: true,
-                        }}
-
-                        navigation={true}
-                        modules={[Pagination, Navigation, Autoplay]}
-                        className="mySwiper"
-                    >
-                        <SwiperSlide ><img className="px-10" src={slide1} alt="" /></SwiperSlide>
-                        <SwiperSlide className="px-10"><img className="px-10" src={slide2} alt="" /></SwiperSlide>
-                        <SwiperSlide className="px-10"><img className="px-10" src={slide3} alt="" /></SwiperSlide>
-                        <SwiperSlide className="px-10"><img className="px-10" src={slide4} alt="" /></SwiperSlide>
-                        <SwiperSlide className="px-10"><img className="px-10" src={slide5} alt="" /></SwiperSlide>
-
-                    </Swiper>
+                <div>
+                    <Rotate top right>
+                        <div className="divider divider-start"></div>
+                    </Rotate>
+                    <div className="flex px-5 py-14 items-center justify-center ">
 
 
+                        <Swiper
+                            slidesPerView={1}
+                            spaceBetween={30}
+                            loop={true}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 1500,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+
+                            navigation={true}
+                            modules={[Pagination, Navigation, Autoplay]}
+                            className="mySwiper"
+                        >
+                            <div className="p-10">
+
+                                <SwiperSlide ><img className="p-10" src={slide1} alt="" /></SwiperSlide>
+                                <SwiperSlide className="px-10"><img className="px-10" src={slide2} alt="" /></SwiperSlide>
+                                <SwiperSlide className="px-10"><img className="px-10" src={slide3} alt="" /></SwiperSlide>
+                                <SwiperSlide className="px-10"><img className="px-10" src={slide4} alt="" /></SwiperSlide>
+                                <SwiperSlide className="px-10"><img className="px-10" src={slide5} alt="" /></SwiperSlide>
+                            </div>
+
+                        </Swiper>
+
+
+                    </div>
                 </div>
 
 
