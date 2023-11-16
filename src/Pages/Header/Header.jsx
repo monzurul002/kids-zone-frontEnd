@@ -25,7 +25,7 @@ const Header = () => {
     return (
 
         <div className="">
-            <div style={commonBackgroundStyle} className="grid  grid-cols-1 md:grid-cols-2">
+            <div style={commonBackgroundStyle} className="grid   grid-cols-1 md:grid-cols-2">
                 <Rotate top left>
                     <div className="px-10" >
                         <div className="divider divider-end"></div>
