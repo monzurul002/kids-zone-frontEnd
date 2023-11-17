@@ -18,6 +18,7 @@ const Navbar = () => {
                             <li><Link to="/alltoys">All Toys</Link></li>
                             <li><Link to="/mytoys">My Toys</Link></li>
                             <li><Link to="/addtoy">Add Toys</Link></li>
+                            <li><Link to="/blogs">Blogs</Link></li>
 
 
                         </ul>
@@ -34,11 +35,12 @@ const Navbar = () => {
                         <li><Link to="/alltoys">All Toys</Link></li>
                         <li><Link to="/mytoys">My Toys</Link></li>
                         <li><Link to="/addtoy">Add Toys</Link></li>
+                        <li><Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to='login'>Login</Link>
-                    <Link to='signup'>Sign Up</Link>
+                <div className="navbar-end mx-4">
+                    <Link className=" text-white font-bold mx-2" to='login'>Login</Link> <span className="text-white  ">/</span>
+                    <Link to='/signup' className="mx-2 font-bold text-white">Sign Up</Link>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ const Login = () => {
                     <img className="w-50" src={loginSide1} alt="" />
                 </div>
 
-                <div className="w-11/12 mx-auto md:px-8 md:w-2/5">
+                <div className="w-11/12 mx-auto md:px-3 md:w-2/5">
                     <div className="card  py-3  shadow-2xl bg-base-100">
                         <h1 className="text-center text-green-500  font-bold text-3xl">Login</h1>
                         <form onSubmit={handleLogin} className="card-body">
