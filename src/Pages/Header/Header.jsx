@@ -34,13 +34,13 @@ const Header = () => {
                             <span className="text-green-500 text-5xl md:text-7xl font-bold">Presentations</span></h2>
                         <p className="py-2 text-xl text-slate-300">How old is the first toy?
                             4,000 years old
-                            The origin of the word toy is unknown, but it is believed that it was first used in the 14th century. Toys are mainly made for children. The oldest known doll toy is thought to be 4,000 years old.</p>
+                            The origin of the word toy is unknown, but it is believed  used in the 14th century. Toys are mainly made for children.</p>
 
                         <div className="flex w-full text-white gap-3 py-5">
                             <AiOutlineShopping className="text-8xl w-50 me-3 text-white" />
                             <div>
                                 <h2 className="text-2xl font-bold ">SINGLE PRODUCT SHOWCASES
-                                </h2>   <p> The earliest toys were made from rocks, sticks or clay. In Ancient Egypt, children played with dolls made of clay and sticks.</p>
+                                </h2>   <p> In Ancient Egypt, children played with dolls made of clay and sticks.</p>
                             </div>
 
                         </div>
@@ -50,7 +50,7 @@ const Header = () => {
                                 className="text-8xl w-50 me-3 text-white" />
                             <div>
                                 <h2 className="text-2xl font-bold uppercase "> Enjoyable and easy-to-play
-                                </h2>   <p> A happy coincidence also to gather or collect in Latin has been named the greatest toy of all time by industry professionals.</p>
+                                </h2>   <p>Latin has been named the greatest toy of all time by industry professionals.</p>
                             </div>
 
                         </div>

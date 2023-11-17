@@ -3,6 +3,8 @@ import loginBg from "../../assets/login.jpg"
 import loginSide1 from "../../assets/loginPic.png"
 import { BiSolidHide } from "react-icons/bi";
 import { GrFormViewHide } from "react-icons/gr";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -55,27 +57,16 @@ const Login = () => {
                                 </div>
 
                             </div>
-                            {/* <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <div className="flex w-full justify-center items-center input input-bordered">
-                                    <input type="password" name="password" placeholder="password" className="" required />
-
-                                    <span><GrFormViewHide className="text-xl" /></span>
-                                    <span>< BiSolidHide /></span>
-                                </div>
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div> */}
+                            <span>Already have an account? <Link className="link text-success" to="/signup">Sign Up</Link></span>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
-            </div></div>
+            </div>
+        </div>
     );
 };
 
