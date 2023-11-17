@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log(user);
+
     return (<div style={{
         backgroundImage: `url(${navBg})`
     }} >
@@ -35,9 +35,11 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal font-bold text-white  px-1">
                     <li ><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
-                    <li><Link to="/alltoys">All Toys</Link></li>
-                    <li><Link to="/mytoys">My Toys</Link></li>
-                    <li><Link to="/addtoy">Add Toys</Link></li>
+                    {
+                        user && <><li><Link to="/alltoys">All Toys</Link></li>
+                            <li><Link to="/mytoys">My Toys</Link></li>
+                            <li><Link to="/addtoy">Add Toys</Link></li></>
+                    }
                     <li><Link to="/blogs">Blogs</Link></li>
                 </ul>
             </div>

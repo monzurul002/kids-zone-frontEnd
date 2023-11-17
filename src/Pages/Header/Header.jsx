@@ -82,7 +82,7 @@ const Header = () => {
                         >
                             <div className="p-10">
 
-                                <SwiperSlide ><img className="p-10" src={slide1} alt="" /></SwiperSlide>
+                                <SwiperSlide ><img className="px-10" src={slide1} alt="" /></SwiperSlide>
                                 <SwiperSlide className="px-10"><img className="px-10" src={slide2} alt="" /></SwiperSlide>
                                 <SwiperSlide className="px-10"><img className="px-10" src={slide3} alt="" /></SwiperSlide>
                                 <SwiperSlide className="px-10"><img className="px-10" src={slide4} alt="" /></SwiperSlide>
