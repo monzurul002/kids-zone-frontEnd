@@ -1,21 +1,41 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import loginBg from "../../assets/login.jpg"
 import loginSide1 from "../../assets/loginPic.png"
 import { BiSolidHide } from "react-icons/bi";
 import { GrFormViewHide } from "react-icons/gr";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
-    const [hide, setHide] = useState(true)
-
+    const [hide, setHide] = useState(true);
+    const navigate = useNavigate();
+    const [error, setError] = useState("")
+    const { emailPasswordSignIn } = useContext(AuthContext)
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        emailPasswordSignIn(email, password)
+            .then(result => {
+                const user = result.user;
+                if (user) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Succesfully logged In.",
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                    navigate("/")
+                }
+            })
+            .catch(error => {
+                setError(error.message)
+            })
 
     }
 
@@ -57,6 +77,7 @@ const Login = () => {
                                 </div>
 
                             </div>
+                            <p className="text-red-600">{error}</p>
                             <span>Already have an account? <Link className="link text-success" to="/signup">Sign Up</Link></span>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>

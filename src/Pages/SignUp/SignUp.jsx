@@ -1,17 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 import { BsRocket } from "react-icons/bs";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CiLogin } from "react-icons/ci";
 
 import "./SignUp.css"
 import { GrFormViewHide } from "react-icons/gr";
 import { BiSolidHide } from "react-icons/bi";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 const SignUp = () => {
     const [error, setError] = useState("");
     const [hide, setHide] = useState(true)
     const [confirmHide, setconfirmHide] = useState(true)
+    const { user, createNewUser, profileUpdate } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -19,21 +23,41 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const phone = form.phone.value;
+        const photo = form.photo.files[0];
         const confirmPassword = form.confirmPassword.value;
         setError(" ")
-
-
         if (!/^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])./.test(password)) {
-            return setError("Password must be contain at least one uppercase and one number.")
+            return setError("Password must be contain at least one uppercase and one number and one lowercase number.")
         }
         if (password !== confirmPassword) {
             setError('')
             return setError("Password don't match")
         }
-        console.log(name, email, password, confirmPassword, phone);
 
+        createNewUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                if (user) {
+                    profileUpdate(name)
+                        .then(() => {
 
-        form.reset()
+                            Swal.fire({
+                                title: `Welcom ${user?.displayName} to Kids Zone`,
+
+                                icon: "success"
+                            });
+
+                        })
+
+                    navigate("/")
+                }
+
+                form.reset()
+            }).catch(error => {
+                setError(error.message)
+            })
+
     }
     // style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover" }}
     return (
@@ -105,8 +129,8 @@ const SignUp = () => {
                                         <div className="flex w-full justify-center items-center input input-bordered">
                                             <input type={confirmHide ? "password" : "text"} name="confirmPassword" placeholder="Confirm password" className="w-11/12 " required />
                                             {
-                                                !confirmHide ? <span onClick={() => setconfirmHide(!confirmHide)}><GrFormViewHide className="text-2xl" /></span> :
-                                                    <span onClick={() => setconfirmHide(!confirmHide)}>< BiSolidHide className="text-2xl" /></span>
+                                                !confirmHide ? <span onClick={() => setconfirmHide(!confirmHide)}><GrFormViewHide className="text-xl" /></span> :
+                                                    <span onClick={() => setconfirmHide(!confirmHide)}>< BiSolidHide className="text-xl" /></span>
                                             }
 
                                         </div>
@@ -116,7 +140,7 @@ const SignUp = () => {
                                         <label className="label">
                                             <span className="label-text">Image Upload</span>
                                         </label>
-                                        <input type="file" className="file-input file-input-bordered file-input-success w-full max-w-xs" />
+                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-success w-full max-w-xs" />
 
                                     </div>
                                 </div>
@@ -125,6 +149,7 @@ const SignUp = () => {
                                     <button className="btn  btn-primary">Register</button>
                                 </div>
                             </div>
+
                         </form>
                         <div className="divider divider-end "></div>
                         <div className="place-items-start	">
