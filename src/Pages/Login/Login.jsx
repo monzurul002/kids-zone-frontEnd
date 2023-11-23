@@ -4,7 +4,7 @@ import loginSide1 from "../../assets/loginPic.png"
 import { BiSolidHide } from "react-icons/bi";
 import { GrFormViewHide } from "react-icons/gr";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 
@@ -14,6 +14,8 @@ const Login = () => {
     const navigate = useNavigate();
     const [error, setError] = useState("")
     const { emailPasswordSignIn } = useContext(AuthContext)
+    const location = useLocation();
+    console.log(location);
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -30,7 +32,7 @@ const Login = () => {
                         showConfirmButton: false,
                         timer: 1000
                     });
-                    navigate("/")
+                    navigate(location.state?.from?.pathname || "/")
                 }
             })
             .catch(error => {

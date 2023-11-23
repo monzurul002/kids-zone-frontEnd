@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 const AddToy = () => {
     const { user } = useContext(AuthContext);
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState();
-
+    const [catagory, setCatagory] = useState('')
+    console.log(catagory);
     useEffect(() => {
         // Check if image is a valid Blob or File
         if (image && (image instanceof Blob || image instanceof File)) {
@@ -12,10 +14,10 @@ const AddToy = () => {
             setUrl(objectUrl);
 
             // Free memory when this component is unmounted
-            // return () => URL.revokeObjectURL(objectUrl);
+            return () => URL.revokeObjectURL(objectUrl);
         } else {
             // Handle the case where image is not a valid object
-            console.error("Invalid image object:", image);
+
         }
     }, [image]);
     const handleSubmit = e => {
@@ -26,6 +28,34 @@ const AddToy = () => {
         const price = form.price.value;
         const email = form.email.value;
         const quantity = form.quantity.value;
+        const description = form.description.value;
+        const toyInfo = {
+            name, seller, price, email, quantity, description, catagory
+        }
+
+        fetch("http://localhost:5000/addtoy", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(toyInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    form.reset()
+                    return Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Succesfully added.",
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+
+
+                }
+            })
+
 
     }
     console.log(image);
@@ -89,7 +119,7 @@ const AddToy = () => {
                                 <span className="label-text">Sub Category</span>
 
                             </label>
-                            <select className="select select-info w-full max-w-xs">
+                            <select onChange={e => setCatagory(e.target.value)} className="select select-info w-full max-w-xs">
                                 <option disabled selected>Select Toys</option>
                                 <option>Colored PencilsKids</option>
                                 <option>Drawing SuppliesArt </option>
