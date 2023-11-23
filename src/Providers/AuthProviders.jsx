@@ -16,12 +16,14 @@ const AuthProviders = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const profileUpdate = (name) => {
+    const profileUpdate = (name, selectImage) => {
         return updateProfile(auth.currentUser, {
-            displayName: name
+            displayName: name,
+            photoURL: selectImage
 
         })
     }
+
 
     const googleSignIn = () => {
         setLoading(true)
@@ -44,8 +46,31 @@ const AuthProviders = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currUser) => {
-            setLoading(false)
             setUser(currUser)
+            setLoading(false)
+
+
+            if (currUser && currUser?.email) {
+                const loggedUser = {
+                    email: currUser?.email
+                }
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ loggedUser })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem("token", data?.token)
+                    })
+            }
+            else {
+                localStorage.removeItem("token")
+            }
+
         })
         return () => {
             unsubscribe()

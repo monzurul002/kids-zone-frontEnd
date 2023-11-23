@@ -1,0 +1,142 @@
+[
+    {
+        "Seller": "ToyCo",
+        "ToyName": "Teddy Bear",
+        "SubCategory": "Plush",
+        "Price": 19.99,
+        "AvailableQuantity": 50
+    },
+    {
+        "Seller": "FunToys",
+        "ToyName": "LEGO Set",
+        "SubCategory": "Building Blocks",
+        "Price": 29.99,
+        "AvailableQuantity": 30
+    },
+    {
+        "Seller": "PlayZone",
+        "ToyName": "Dollhouse",
+        "SubCategory": "Dolls and Accessories",
+        "Price": 49.99,
+        "AvailableQuantity": 20
+    },
+    {
+        "Seller": "SuperToys",
+        "ToyName": "Remote Control Car",
+        "SubCategory": "Remote Control",
+        "Price": 39.99,
+        "AvailableQuantity": 25
+    },
+    {
+        "Seller": "AdventureToys",
+        "ToyName": "Board Game",
+        "SubCategory": "Board Games",
+        "Price": 24.99,
+        "AvailableQuantity": 40
+    },
+    {
+        "Seller": "TinyHands",
+        "ToyName": "Puzzle Set",
+        "SubCategory": "Puzzles",
+        "Price": 14.99,
+        "AvailableQuantity": 60
+    },
+    {
+        "Seller": "CreativeToys",
+        "ToyName": "Art and Craft Kit",
+        "SubCategory": "Art and Craft",
+        "Price": 19.99,
+        "AvailableQuantity": 35
+    },
+    {
+        "Seller": "RoboticsRUs",
+        "ToyName": "Robot Kit",
+        "SubCategory": "Science and Educational",
+        "Price": 59.99,
+        "AvailableQuantity": 15
+    },
+    {
+        "Seller": "SportsGalaxy",
+        "ToyName": "Basketball Hoop Set",
+        "SubCategory": "Sports and Outdoor",
+        "Price": 49.99,
+        "AvailableQuantity": 10
+    },
+    {
+        "Seller": "TechKids",
+        "ToyName": "Coding Robot",
+        "SubCategory": "STEM Toys",
+        "Price": 34.99,
+        "AvailableQuantity": 18
+    },
+    {
+        "Seller": "PlayfulPets",
+        "ToyName": "Pet Plushies Set",
+        "SubCategory": "Plush",
+        "Price": 22.99,
+        "AvailableQuantity": 45
+    },
+    {
+        "Seller": "TinyExplorers",
+        "ToyName": "Telescope Kit",
+        "SubCategory": "Science and Educational",
+        "Price": 29.99,
+        "AvailableQuantity": 22
+    },
+    {
+        "Seller": "MagicWonders",
+        "ToyName": "Magic Kit",
+        "SubCategory": "Magic and Tricks",
+        "Price": 18.99,
+        "AvailableQuantity": 28
+    },
+    {
+        "Seller": "AdventurePlay",
+        "ToyName": "Play Tent",
+        "SubCategory": "Sports and Outdoor",
+        "Price": 32.99,
+        "AvailableQuantity": 12
+    },
+    {
+        "Seller": "LittleBuilders",
+        "ToyName": "Construction Set",
+        "SubCategory": "Building Blocks",
+        "Price": 26.99,
+        "AvailableQuantity": 33
+    },
+    {
+        "Seller": "AnimalFriends",
+        "ToyName": "Animal Figure Set",
+        "SubCategory": "Figures and Playsets",
+        "Price": 16.99,
+        "AvailableQuantity": 55
+    },
+    {
+        "Seller": "ImaginationStation",
+        "ToyName": "Storybook Set",
+        "SubCategory": "Books and Learning",
+        "Price": 14.99,
+        "AvailableQuantity": 42
+    },
+    {
+        "Seller": "WonderWheels",
+        "ToyName": "Roller Skates",
+        "SubCategory": "Sports and Outdoor",
+        "Price": 38.99,
+        "AvailableQuantity": 17
+    },
+    {
+        "Seller": "MegaGizmos",
+        "ToyName": "Gadget Kit",
+        "SubCategory": "Tech Toys",
+        "Price": 44.99,
+        "AvailableQuantity": 14
+    },
+    {
+        "Seller": "FantasyLand",
+        "ToyName": "Fairy Princess Castle",
+        "SubCategory": "Dolls and Accessories",
+        "Price": 54.99,
+        "AvailableQuantity": 8
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "picture": "https://example.com/toy1.jpg",
+        "name": "Teddy Bear",
+        "price": 19.99,
+        "rating": 4.5
+    },
+    {
+        "picture": "https://example.com/toy2.jpg",
+        "name": "LEGO Building Set",
+        "price": 29.99,
+        "rating": 4.8
+    },
+    {
+        "picture": "https://example.com/toy3.jpg",
+        "name": "Barbie Doll",
+        "price": 24.99,
+        "rating": 4.3
+    },
+    {
+        "picture": "https://example.com/toy4.jpg",
+        "name": "Hot Wheels Car Set",
+        "price": 14.99,
+        "rating": 4.0
+    },
+    {
+        "picture": "https://example.com/toy5.jpg",
+        "name": "Remote Control Robot",
+        "price": 39.99,
+        "rating": 4.7
+    },
+    {
+        "picture": "https://example.com/toy6.jpg",
+        "name": "Board Game: Monopoly",
+        "price": 34.99,
+        "rating": 4.9
+    },
+    {
+        "picture": "https://example.com/toy7.jpg",
+        "name": "Puzzle Set",
+        "price": 22.99,
+        "rating": 3.5
+    },
+    {
+        "picture": "https://example.com/toy8.jpg",
+        "name": "Play Kitchen Set",
+        "price": 49.99,
+        "rating": 4.2
+    },
+    {
+        "picture": "https://example.com/toy9.jpg",
+        "name": "Art and Craft Supplies",
+        "price": 29.99,
+        "rating": 4.8
+    },
+    {
+        "picture": "https://example.com/toy10.jpg",
+        "name": "Stuffed Animals Set",
+        "price": 19.99,
+        "rating": 4.0
+    },
+    {
+        "picture": "https://example.com/toy11.jpg",
+        "name": "Building Blocks Kit",
+        "price": 44.99,
+        "rating": 3.7
+    },
+    {
+        "picture": "https://example.com/toy12.jpg",
+        "name": "Educational Laptop for Kids",
+        "price": 39.99,
+        "rating": 4.5
+    },
+    {
+        "picture": "https://example.com/toy13.jpg",
+        "name": "Action Figures Set",
+        "price": 27.99,
+        "rating": 4.2
+    },
+    {
+        "picture": "https://example.com/toy14.jpg",
+        "name": "Outdoor Sports Equipment",
+        "price": 64.99,
+        "rating": 4.6
+    },
+    {
+        "picture": "https://example.com/toy15.jpg",
+        "name": "Musical Instruments Set",
+        "price": 54.99,
+        "rating": 3.9
+    },
+    {
+        "picture": "https://example.com/toy16.jpg",
+        "name": "Dollhouse with Furniture",
+        "price": 74.99,
+        "rating": 4.3
+    },
+    {
+        "picture": "https://example.com/toy17.jpg",
+        "name": "Science Experiment Kit",
+        "price": 32.99,
+        "rating": 4.7
+    },
+    {
+        "picture": "https://example.com/toy18.jpg",
+        "name": "Toy Kitchen Appliance Set",
+        "price": 28.99,
+        "rating": 3.8
+    },
+    {
+        "picture": "https://example.com/toy19.jpg",
+        "name": "Remote Control Drone",
+        "price": 59.99,
+        "rating": 4.1
+    },
+    {
+        "picture": "https://example.com/toy20.jpg",
+        "name": "DIY Craft Kit",
+        "price": 22.99,
+        "rating": 4.9
+    }
+]

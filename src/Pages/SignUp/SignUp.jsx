@@ -12,10 +12,14 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 const SignUp = () => {
     const [error, setError] = useState("");
-    const [hide, setHide] = useState(true)
+    const [hide, setHide] = useState(true);
+    const [image, setImage] = useState(null)
     const [confirmHide, setconfirmHide] = useState(true)
     const { user, createNewUser, profileUpdate } = useContext(AuthContext)
     const navigate = useNavigate()
+
+
+
     const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -23,23 +27,38 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const phone = form.phone.value;
-        const photo = form.photo.files[0];
+        // const photo = form.photo.files[0];
         const confirmPassword = form.confirmPassword.value;
+
         setError(" ")
         if (!/^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])./.test(password)) {
             return setError("Password must be contain at least one uppercase and one number and one lowercase number.")
         }
-        if (password !== confirmPassword) {
+        else if (password !== confirmPassword) {
             setError('')
             return setError("Password don't match")
         }
+
+        //photo upload to cloudinary
+        // const data = new FormData()
+        // data.append("image", image)
+        // data.append("upload_preset", "bwyinbs8")
+
+
+        // fetch('https://api.cloudinary.com/v1_1/dj7z2d6lv/upload', {
+        //     method: "POST",
+        //     body: data
+        // }).then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
 
         createNewUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 if (user) {
-                    profileUpdate(name)
+                    profileUpdate(name, image)
                         .then(() => {
 
                             Swal.fire({
@@ -49,6 +68,18 @@ const SignUp = () => {
                             });
 
                         })
+                    // const email = user?.email
+                    // fetch("http://localhost:5000/jwt", {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json",
+                    //     },
+                    //     body: JSON.stringify({ email })
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(data => {
+                    //         localStorage.setItem("token", data?.token)
+                    //     })
 
                     navigate("/")
                 }
@@ -136,11 +167,13 @@ const SignUp = () => {
                                         </div>
 
                                     </div>
+
+
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Image Upload</span>
                                         </label>
-                                        <input type="file" name="photo" className="file-input file-input-bordered file-input-success w-full max-w-xs" />
+                                        <input onChange={(e) => setImage(e.target.files[0])} type="file" name="photo" className="file-input file-input-bordered file-input-success w-full max-w-xs" />
 
                                     </div>
                                 </div>
