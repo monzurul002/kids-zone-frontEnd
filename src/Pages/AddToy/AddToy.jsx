@@ -1,13 +1,39 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 const AddToy = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState();
 
+    useEffect(() => {
+        // Check if image is a valid Blob or File
+        if (image && (image instanceof Blob || image instanceof File)) {
+            const objectUrl = URL.createObjectURL(image);
+            setUrl(objectUrl);
+
+            // Free memory when this component is unmounted
+            // return () => URL.revokeObjectURL(objectUrl);
+        } else {
+            // Handle the case where image is not a valid object
+            console.error("Invalid image object:", image);
+        }
+    }, [image]);
+    const handleSubmit = e => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const seller = form.seller.value;
+        const price = form.price.value;
+        const email = form.email.value;
+        const quantity = form.quantity.value;
+
+    }
+    console.log(image);
 
     return (
         <div>
             <h2 className="text-center text-2xl text-purple-700 font-bold py-2">Add Toy</h2>
-            <form >
+            <form onSubmit={handleSubmit} >
                 <div className="grid grid-cols1 md:grid-cols-2 ">
 
                     <div className="w-10/12 border m-8 p-8 mx-auto">
@@ -16,7 +42,7 @@ const AddToy = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="Type here" className="input input-bordered  " />
+                            <input type="text" name="name" placeholder="Type your name here" className="input input-bordered  " />
                         </div>
                         <div className="form-control w-full ">
                             <label className="label">
@@ -34,7 +60,7 @@ const AddToy = () => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input type="text" placeholder="Type here" className="input input-bordered " />
+                            <input type="text" name="price" placeholder="Type here" className="input input-bordered " />
                         </div>
                         <div className="form-control  ">
                             <label className="label">
@@ -48,7 +74,7 @@ const AddToy = () => {
                             <label className="label">
                                 <span className="label-text">Image Upload</span>
                             </label>
-                            <input type="file" className="file-input  file-input-bordered file-input-success " />
+                            <input type="file" onChange={e => setImage(e.target.files[0])} className="file-input  file-input-bordered file-input-success " />
                         </div>
 
 
@@ -57,7 +83,7 @@ const AddToy = () => {
                     <div className=" p-10">
 
 
-                        <img className="w-1/2 rounded-lg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F1lbDQ4kXBC95EdP08zm2hOJkRLQJoceUFV4_dD3&s" alt="" />
+                        <img className="w-1/2 rounded-lg" src={image ? url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F1lbDQ4kXBC95EdP08zm2hOJkRLQJoceUFV4_dD3&s"} alt="" />
                         <div className="form-control py-2  ">
                             <label className="label">
                                 <span className="label-text">Sub Category</span>

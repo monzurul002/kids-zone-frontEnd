@@ -59,7 +59,7 @@ const AuthProviders = ({ children }) => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ loggedUser })
+                    body: JSON.stringify(loggedUser)
                 })
                     .then(res => res.json())
                     .then(data => {

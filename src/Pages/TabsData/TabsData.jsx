@@ -1,10 +1,24 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
+import { AuthContext } from "../../Providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const TabsData = () => {
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
 
-
+    const handleShowDetails = () => {
+        if (!user) {
+            navigate("/login")
+            return Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "You have to be login first.",
+            });
+        }
+    }
     return (
         <div className="p-5">
             <Tabs forceRenderTabPanel defaultIndex={1}>
@@ -19,7 +33,7 @@ const TabsData = () => {
                             </Tab>
                             <Tab>Kids' Arts & Crafts</Tab>
                             <Tab>Arts & Crafts Supplies</Tab>
-                            Kids' Art Paints
+                            <Tab> Kids' Art Paints</Tab>
                         </TabList>
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-3 mt-5 gap-5">
@@ -34,7 +48,7 @@ const TabsData = () => {
                                             <p>Rating:5</p>
                                         </div>
                                         <div className="card-actions">
-                                            <button className="btn btn-primary">Buy Now</button>
+                                            <button onClick={handleShowDetails} className="btn btn-primary">See Details</button>
                                         </div>
                                     </div>
                                 </div>
