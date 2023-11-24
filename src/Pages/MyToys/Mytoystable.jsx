@@ -60,7 +60,7 @@ const Mytoystable = ({ mytoy, myToys, setMyToys }) => {
           className="btn"
           onClick={() => {
             setModalDetails(mytoy);
-            document.getElementById("my_modal_5").showModal();
+            document.getElementById("my_modal_5")?.showModal();
           }}
         >
           Update

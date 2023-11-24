@@ -1,10 +1,44 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const ModalUpdate = ({ modalDetails, setModalDetails }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = modalDetails._id;
-    alert(id);
+    const form = e.target;
+    const name = form.name.value;
+    const quantity = form.quantity.value;
+    const description = form.description.description;
+
+
+    const updateInfo = {
+      name,
+      quantity,
+      description
+    }
+    console.log(updateInfo);
+    fetch(`http://localhost:5000/updatetoy/${modalDetails?._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updateInfo)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data?.modifiedCount > 0) {
+          return Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Succesfully updated.",
+            showConfirmButton: false,
+            timer: 1000
+          })
+        }
+      })
+
+
+
     setModalDetails(null);
   };
 
@@ -40,6 +74,7 @@ const ModalUpdate = ({ modalDetails, setModalDetails }) => {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       placeholder="Type here"
                       className="input input-bordered "
                       defaultValue={modalDetails?.name}
@@ -53,6 +88,7 @@ const ModalUpdate = ({ modalDetails, setModalDetails }) => {
                     <input
                       type="text"
                       placeholder="Type here"
+                      name="quantity"
                       className="input  input-bordered "
                       id="quantity"
                       defaultValue={modalDetails?.quantity}
@@ -66,6 +102,7 @@ const ModalUpdate = ({ modalDetails, setModalDetails }) => {
                     <input
                       type="text"
                       id="description"
+                      name="description"
                       placeholder="Type here"
                       className="input  input-bordered "
                       defaultValue={modalDetails?.description}
